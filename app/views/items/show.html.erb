@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>Purchase count:</strong>
+  <%= @item.purchase_count %>
+</p>
+
+<p>
+  <strong>Merchant:</strong>
+  <%= link_to @item.merchant.name, merchant_path(@item.merchant) %><%= ", #{@item.merchant.address}" %>
+</p>
+
+<p>
+  <strong>Purchaser:</strong>
+  <%= link_to @item.purchaser.name, purchaser_path(@item.purchaser) %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

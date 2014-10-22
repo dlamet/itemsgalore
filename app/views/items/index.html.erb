@@ -1,0 +1,43 @@
+<h1>Listing Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Purchase Count</th>
+      <th>Merchant</th>
+      <th>Purchaser</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
+        <td><%= item.purchase_count %></td>
+        <td><%= link_to item.merchant.name, merchant_path(item.merchant) %><%= ", #{item.merchant.address}" %></td>
+        <td><%= link_to item.purchaser.name, purchaser_path(item.purchaser) %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div>
+  <div></div><%= "#{@items.size} items." %></div>
+  <div><%= "Total gross revenue = #{number_to_currency(@gross_revenue)}" %></div>
+</div>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
+<%= link_to 'Import Items', 'import_files/new' %>
+<%= link_to 'Purchasers', 'purchasers' %>
+<%= link_to 'Merchants', 'merchants' %>

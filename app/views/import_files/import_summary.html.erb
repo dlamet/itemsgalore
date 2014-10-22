@@ -1,0 +1,8 @@
+<h1>Import Summary</h1>
+
+<div>
+    <div></div><%= "#{@items.size} items imported." %></div>
+    <div><%= "New gross revenue = #{number_to_currency(@new_gross_revenue)}" %></div>
+</div>
+
+<%= link_to 'Back', items_path %>

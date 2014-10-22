@@ -1,0 +1,12 @@
+<h1>Import Items</h1>
+
+<%= form_for @import_file, :html => { :multipart => true } do |f| %>
+    <div class="field">
+      <label for="file">File to upload:</label> <%= f.file_field :upload_file %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Import Items' %>
+    </div>
+<% end %>
+
+<%= link_to 'Back', items_path %>
